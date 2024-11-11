@@ -32,13 +32,13 @@ destroy-mysql:
 ## ⚒️ Quality Tools
 .PHONY .SILENT:
 phpstan:
-	docker exec mytheresachallenge_php_1 composer phpstan
+	docker exec mytheresachallenge composer phpstan
 
 enter:
-	docker exec -it mytheresachallenge_php_1 bash
+	docker exec -it mytheresachallenge bash
 
 ##
 ## 🚦️Tests
 .PHONY .SILENT:
 tests:
-	docker exec mytheresachallenge_php_1 bash -c "composer test"
+	docker exec mytheresachallenge bash -c "composer test"

@@ -9,6 +9,7 @@ services:
         - ENABLE_XDEBUG=true
         - XDEBUG_CLIENT_HOST=${XDEBUG_CLIENT_HOST-host.docker.internal}
     image: mytheresachallenge
+    container_name: mytheresachallenge
     restart: unless-stopped
     environment:
       - COMPOSER_ALLOW_SUPERUSER=1
@@ -20,6 +21,7 @@ services:
       - internal
 
   web:
+    container_name: mytheresachallengeweb
     image: nginx:latest
     ports:
       - '80:80'
@@ -32,7 +34,7 @@ services:
       - internal
 
   mysql:
-    container_name: mytheresachallenge
+    container_name: mytheresachallengemysql
     image: docker.io/mysql:8.3.0
     ports:
       - "3306:3306"
