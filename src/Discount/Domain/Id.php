@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MytheresaChallenge\Product\Domain;
+namespace MytheresaChallenge\Discount\Domain;
 
 use MytheresaChallenge\Shared\Domain\UuidValueObject;
 

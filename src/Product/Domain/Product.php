@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace MytheresaChallenge\Product\Domain;
 
 
+use MytheresaChallenge\Price\Domain\Price;
 use MytheresaChallenge\Shared\Domain\Aggregate\AggregateRoot;
 
 final class Product extends AggregateRoot
@@ -12,7 +13,9 @@ final class Product extends AggregateRoot
     public function __construct(
         private readonly string $id, 
         private readonly string $name,
-        private readonly string $category
+        private readonly string $sku,
+        private readonly Category $category,
+        private readonly Price $price
     ) {}
 
     public function id(): Id
@@ -27,6 +30,11 @@ final class Product extends AggregateRoot
 
     public function category(): Category
     {
-        return new Category($this->category);
+        return $this->category;
+    }
+
+    public function price(): Price
+    {
+        return $this->price;
     }
 }
