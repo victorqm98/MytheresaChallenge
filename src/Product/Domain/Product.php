@@ -6,9 +6,10 @@ namespace MytheresaChallenge\Product\Domain;
 
 
 use MytheresaChallenge\Price\Domain\Price;
+use MytheresaChallenge\Category\Domain\Category;
 use MytheresaChallenge\Shared\Domain\Aggregate\AggregateRoot;
 
-final class Product extends AggregateRoot
+class Product extends AggregateRoot
 {
     public function __construct(
         private readonly string $id, 

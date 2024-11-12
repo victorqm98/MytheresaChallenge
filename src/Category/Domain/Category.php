@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace MytheresaChallenge\Product\Domain;
+namespace MytheresaChallenge\Category\Domain;
 
-class Category
+use MytheresaChallenge\Shared\Domain\Aggregate\AggregateRoot;
+
+class Category extends AggregateRoot
 {
     public function __construct(
         private readonly string $id, 

@@ -27,3 +27,19 @@ services:
     MytheresaChallenge\App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+    
+    MytheresaChallenge\Discount\Infrastructure\DataFixtures\:
+        resource: '../../src/Discount/Infrastructure/DataFixtures'
+        tags: ['doctrine.fixture.orm']
+
+    MytheresaChallenge\Price\Infrastructure\DataFixtures\:
+        resource: '../../src/Price/Infrastructure/DataFixtures'
+        tags: ['doctrine.fixture.orm']
+
+    MytheresaChallenge\Product\Infrastructure\DataFixtures\:
+        resource: '../../src/Product/Infrastructure/DataFixtures'
+        tags: ['doctrine.fixture.orm']
+
+    MytheresaChallenge\Category\Infrastructure\DataFixtures\:
+        resource: '../../src/Category/Infrastructure/DataFixtures'
+        tags: ['doctrine.fixture.orm']

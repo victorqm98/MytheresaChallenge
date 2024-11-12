@@ -11,7 +11,30 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
-            # TODO:
+            MytheresaChallenge\Category:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/doctrine/category'
+                prefix: 'MytheresaChallenge\Category\Domain'
+                alias: Category
+            MytheresaChallenge\Product:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/doctrine/product'
+                prefix: 'MytheresaChallenge\Product\Domain'
+                alias: Product
+            MytheresaChallenge\Discount:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/doctrine/discount'
+                prefix: 'MytheresaChallenge\Discount\Domain'
+                alias: Discount
+            MytheresaChallenge\Price:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/doctrine/price'
+                prefix: 'MytheresaChallenge\Price\Domain'
+                alias: Price
 
 when@test:
     doctrine:

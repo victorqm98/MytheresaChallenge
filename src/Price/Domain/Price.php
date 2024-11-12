@@ -7,10 +7,10 @@ namespace MytheresaChallenge\Price\Domain;
 
 use MytheresaChallenge\Shared\Domain\Aggregate\AggregateRoot;
 
-final class Price extends AggregateRoot
+class Price extends AggregateRoot
 {
     public function __construct(
-        private readonly string $id, 
+        private readonly string $id,
         private readonly int $originalPrice,
         private readonly int $finalPrice,
         private readonly string $currency

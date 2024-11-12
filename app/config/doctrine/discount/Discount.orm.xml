@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                  http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="MytheresaChallenge\Discount\Domain\Discount" table="discount">
+        <id name="id" type="string" length="255" column="id"/>
+        <field name="type" type="string" length="255" column="type"/>
+        <field name="percentage" type="integer" column="percentage"/>
+        <field name="appliesTo" type="string" length="255" column="applies_to"/>
+    </entity>
+</doctrine-mapping>

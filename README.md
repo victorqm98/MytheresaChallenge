@@ -10,7 +10,7 @@ git clone git@github.com:victorqm98/mytheresa-challenge.git
 
 Use docker to run the project
 
-```bash
+```bashphp app/bin/console doctrine:migrations:migrate
 make start
 ```
 
@@ -18,11 +18,6 @@ Enter in docker to install dependencies
 
 ```bash
 make enter
-```
-
-To install the composer dependencies use
-
-```bash
 composer install
 ```
 
@@ -59,6 +54,10 @@ Run migrations to create the tables:
 php app/bin/console doctrine:migrations:migrate
 ```
 
+```bash
+php app/bin/console doctrine:fixtures:load
+```
+
 ## Usage
 
 This are the API endpoints to try the code. (Also sent in json format to import directly in Postman.)
@@ -68,4 +67,3 @@ This are the API endpoints to try the code. (Also sent in json format to import 
 ## Tests
 
 Navigate to the project root and run `make tests` or `docker exec mytheresachallenge_php_1 bash -c "composer test"` after installing all the composer dependencies.
-
