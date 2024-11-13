@@ -6,11 +6,12 @@ namespace MytheresaChallenge\Category\Domain;
 
 use MytheresaChallenge\Shared\Domain\Aggregate\AggregateRoot;
 
+
 class Category extends AggregateRoot
 {
     public function __construct(
         private readonly string $id, 
-        private readonly string $name,
+        private readonly string $name
     ) {}
 
     public function id(): Id

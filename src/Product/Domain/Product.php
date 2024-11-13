@@ -7,6 +7,7 @@ namespace MytheresaChallenge\Product\Domain;
 
 use MytheresaChallenge\Price\Domain\Price;
 use MytheresaChallenge\Category\Domain\Category;
+use MytheresaChallenge\Category\Domain\Name;
 use MytheresaChallenge\Shared\Domain\Aggregate\AggregateRoot;
 
 class Product extends AggregateRoot
@@ -29,13 +30,42 @@ class Product extends AggregateRoot
         return new Name($this->name);
     }
 
-    public function category(): Category
+    public function sku(): Sku
     {
-        return $this->category;
+        return new Sku($this->sku);
+    }
+
+    public function category(): Name
+    {
+        return $this->category->name();
     }
 
     public function price(): Price
     {
         return $this->price;
+    }
+
+    public function currency(): string
+    {
+        return $this->price->currency()->value();
+    }
+
+    public function originalPrice(): int
+    {
+        return $this->price->originalPrice()->value();
+    }
+
+    public function getFinalPrice(int $discount): int
+    {
+        return $this->price->getFinalPrice($discount);
+    }
+
+    public function getBiggestDiscount(array $discounts): ?int
+    {
+        if(empty($discounts)){
+            return null;
+        }
+
+        return max(array_map(fn($discount) => $discount->percentage()->value(), $discounts));
     }
 }
