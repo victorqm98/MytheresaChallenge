@@ -2,10 +2,11 @@
 
 namespace MytheresaChallenge\App\Controller\Product;
 
+use Symfony\Contracts\Cache\CacheInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use MytheresaChallenge\Shared\Domain\HttpStatusCodes;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Symfony\Contracts\Cache\CacheInterface;
 use MytheresaChallenge\Product\Application\UseCase\GetProductsUseCase;
 
 final class GetProductsController
@@ -25,7 +26,7 @@ final class GetProductsController
         if (count($errors) > 0) {
             return new JsonResponse([
                 'errors' => (string) $errors,
-            ], 400);
+            ], HttpStatusCodes::BAD_REQUEST);
         }
 
         $categoryIdsArray = $getProductsRequest->categoryIds;
@@ -41,7 +42,7 @@ final class GetProductsController
                 return $this->getProductsUseCase->execute($categoryIdsArray, $skusArray, $page, $limit)->toArray();
             });
         } catch (\Exception $e) {
-            return new JsonResponse(['error' => 'An unexpected error occurred: ' . $e], 500);
+            return new JsonResponse(['error' => 'An unexpected error occurred: ' . $e], HttpStatusCodes::INTERNAL_SERVER_ERROR);
         }
 
         return new JsonResponse($productsResponse);

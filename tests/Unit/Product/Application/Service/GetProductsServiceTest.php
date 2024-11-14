@@ -95,7 +95,6 @@ final class GetProductsServiceTest extends TestCase
 
         $response = $this->getProductsService->execute([$category->id()->value()], [], 1, 5);
 
-        // Assert
         $this->assertCount(1, $response->products());
 
         $productResponse = $response->products()[0]->toArray();

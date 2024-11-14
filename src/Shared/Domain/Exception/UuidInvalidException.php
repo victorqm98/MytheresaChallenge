@@ -6,6 +6,7 @@ namespace MytheresaChallenge\Shared\Domain\Exception;
 
 use Exception;
 use Throwable;
+use MytheresaChallenge\Shared\Domain\HttpStatusCodes;
 
 class UuidInvalidException extends Exception
 {
@@ -15,6 +16,6 @@ class UuidInvalidException extends Exception
     }
 
     public static function create(string $id){
-        return new self("Uuid ". $id ."is not valid", 1001);
+        return new self("Uuid ". $id ." is not valid", HttpStatusCodes::INVALID_UUID);
     }
 }
