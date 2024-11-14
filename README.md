@@ -5,7 +5,7 @@
 ### Clone the project
 
 ```bash
-git clone git@github.com:victorqm98/mytheresa-challenge.git
+git clone git@github.com:victorqm98/MytheresaChallenge.git
 ```
 
 ### Install and Run the project
