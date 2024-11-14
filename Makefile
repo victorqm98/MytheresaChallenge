@@ -44,8 +44,8 @@ tests: ## Run project tests
 .PHONY: installation prepare-permissions run-inside
 installation: start prepare-permissions
 	docker exec mytheresachallenge bash -c "\
-		php app/bin/console doctrine:database:create --if-not-exists && \
 		composer install && \
+		php app/bin/console doctrine:database:create --if-not-exists && \
 		php app/bin/console doctrine:migrations:migrate --no-interaction && \
 		php app/bin/console doctrine:fixtures:load --no-interaction"
 
