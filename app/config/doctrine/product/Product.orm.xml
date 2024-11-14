@@ -7,7 +7,7 @@
         <id name="id" type="string" length="255"/>
         <field name="name" type="string" length="255"/>
         <field name="sku" type="string" length="255"/>
-        <many-to-one field="category" target-entity="MytheresaChallenge\Category\Domain\Category">
+        <many-to-one field="category" target-entity="MytheresaChallenge\Category\Domain\Category" fetch="EAGER">
             <join-column name="category_id" referenced-column-name="id" nullable="false" />
         </many-to-one>
         <one-to-one field="price" target-entity="MytheresaChallenge\Price\Domain\Price" fetch="EAGER">

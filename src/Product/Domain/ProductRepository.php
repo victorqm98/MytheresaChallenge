@@ -6,5 +6,5 @@ namespace MytheresaChallenge\Product\Domain;
 
 interface ProductRepository
 {
-    public function findAllByFilter(array $categoryIds, array $skus): array;
+    public function findAllByFilter(array $categoryIds, array $skus, int $page, int $limit): array;
 }

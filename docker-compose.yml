@@ -54,6 +54,14 @@ services:
       - ./resources/mysql/wait_for_mysql.sh:/tmp/wait_for_mysql.sh
     networks:
       - internal
+  
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - internal
 
 networks:
   internal:

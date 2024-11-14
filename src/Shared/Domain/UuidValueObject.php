@@ -13,11 +13,6 @@ abstract class UuidValueObject
         $this->ensureIsValidUuid($value);
     }
 
-    public function __toString(): string
-    {
-        return $this->value;
-    }
-
     public function value(): string
     {
         return $this->value;

@@ -27,6 +27,16 @@ services:
     MytheresaChallenge\App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    MytheresaChallenge\Product\Domain\ProductRepository:
+        class: MytheresaChallenge\Product\Infrastructure\Product\MysqlProductRepository
+        arguments:
+            - '@doctrine.orm.entity_manager'
+
+    MytheresaChallenge\Discount\Domain\DiscountRepository:
+        class: MytheresaChallenge\Discount\Infrastructure\Discount\MysqlDiscountRepository
+        arguments:
+            - '@doctrine.orm.entity_manager'
     
     MytheresaChallenge\Discount\Infrastructure\DataFixtures\:
         resource: '../../src/Discount/Infrastructure/DataFixtures'

@@ -6,7 +6,6 @@
     <entity name="MytheresaChallenge\Price\Domain\Price" table="price">
         <id name="id" type="string" length="255" column="id"/>
         <field name="originalPrice" type="integer" column="original_price"/>
-        <field name="finalPrice" type="integer" column="final_price"/>
         <field name="currency" type="string" length="3" column="currency"/>
     </entity>
 </doctrine-mapping>

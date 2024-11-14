@@ -15,6 +15,6 @@ class UuidInvalidException extends Exception
     }
 
     public static function create(string $id){
-        return new self("Uuid ". $id ."is not valid", 1002);
+        return new self("Uuid ". $id ."is not valid", 1001);
     }
 }

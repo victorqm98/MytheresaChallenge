@@ -4,3 +4,10 @@ health_get:
   methods:  [GET]
   defaults:
     ignore_monitoring: true
+
+get_products:
+  path: /products
+  controller: MytheresaChallenge\App\Controller\Product\GetProductsController
+  methods:  [GET]
+  defaults:
+    ignore_monitoring: true

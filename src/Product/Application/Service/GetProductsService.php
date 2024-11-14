@@ -8,6 +8,8 @@ use MytheresaChallenge\Product\Domain\ProductRepository;
 use MytheresaChallenge\Discount\Domain\DiscountRepository;
 use MytheresaChallenge\Product\Application\Service\Response\ProductResponse;
 use MytheresaChallenge\Product\Application\Service\Response\ProductsResponse;
+use MytheresaChallenge\Product\Domain\Product;
+
 
 final class GetProductsService
 {
@@ -15,9 +17,13 @@ final class GetProductsService
         private readonly ProductRepository $productRepository,
         private readonly DiscountRepository $discountRepository){}
 
-    public function execute(array $categoryIds, array $skus): ProductsResponse
+    public function execute(array $categoryIds, array $skus, ?int $page, ?int $limit): ProductsResponse
     {
-        $products = $this->productRepository->findAllByFilter($categoryIds, $skus);
+        /** @var Product[] $products */
+        $products = $this->productRepository->findAllByFilter($categoryIds, $skus, $page, $limit);
+
+        $productResponses = [];
+
         foreach ($products as $product) {
             $discounts = $this->discountRepository->findAllByProduct($product);
 
@@ -25,15 +31,12 @@ final class GetProductsService
             $finalPrice = $product->getFinalPrice($biggestDiscount);
 
             $productResponses[] = new ProductResponse(
-                $product->sku()->value(),
-                $product->name()->value(),
-                $product->category()->value(),
-                $product->originalPrice(),
+                $product,
                 $finalPrice,
                 $biggestDiscount,
-                $product->currency()
             );
         }
+
         return new ProductsResponse($productResponses);
     }
 }

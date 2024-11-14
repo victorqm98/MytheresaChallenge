@@ -11,8 +11,8 @@ final class GetProductsUseCase
 {
     public function __construct(private readonly GetProductsService $getProductsService){}
 
-    public function execute(array $categoryIds, array $skus): ProductsResponse
+    public function execute(array $categoryIds, array $skus, ?int $page, ?int $limit): ProductsResponse
     {
-        return $this->getProductsService->execute($categoryIds, $skus);
+        return $this->getProductsService->execute($categoryIds, $skus, $page, $limit);
     }
 }
