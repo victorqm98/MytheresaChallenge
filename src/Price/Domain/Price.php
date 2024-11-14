@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace MytheresaChallenge\Price\Domain;
 
 use MytheresaChallenge\Shared\Domain\Aggregate\AggregateRoot;
-use phpDocumentor\Reflection\Types\Null_;
 
 class Price extends AggregateRoot
 {

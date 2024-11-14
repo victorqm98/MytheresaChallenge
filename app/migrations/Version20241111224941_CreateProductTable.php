@@ -23,6 +23,7 @@ final class CreateProductTable extends AbstractMigration
                 CONSTRAINT FK_price FOREIGN KEY (price_id) REFERENCES price(id) ON DELETE CASCADE
             )
         ');
+        $this->addSql('CREATE INDEX category_sku_index ON product (category_id, sku)');
     }
 
     public function down(Schema $schema): void

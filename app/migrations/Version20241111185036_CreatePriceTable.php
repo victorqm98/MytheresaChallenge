@@ -18,7 +18,6 @@ final class CreatePriceTable extends AbstractMigration
             CREATE TABLE price (
                 id VARCHAR(255) NOT NULL,
                 original_price INT NOT NULL,
-                final_price INT NOT NULL,
                 currency VARCHAR(3) NOT NULL,
                 PRIMARY KEY(id)
             )
